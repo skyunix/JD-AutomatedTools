@@ -20,11 +20,12 @@ version: JD-AutomaticEvaluate-2.4.10
 
 # 快速开始
 - python版本使用3.12, 建议版本3.8+
-- 创建虚拟环境`python -m venv <venv_name>`
+- 创建虚拟环境：`python -m venv <venv_name>`
 - 激活虚拟环境
   - Windows： `.\<venv_name>\Scripts\activate`
   - macOS/Linux: `source <venv_name>/bin/activate`
 - 导入依赖：`pip install -r requirements.txt`
+- 安装 playwright 浏览器：`playwright install chromium`
 
 ## 命令行模式
 
@@ -38,7 +39,7 @@ python JD-AutomaticEvaluate.py
 
 ```
 # 获取参数表
-python JD-AutomaticEvaluate.py - h
+python JD-AutomaticEvaluate.py -h
 
 # 修改限制条件 MIN_DESCRIPTIONS
 python JD-AutomaticEvaluate.py -md 20
@@ -90,10 +91,13 @@ pyinstaller --onefile --add-data="C:\Users\your_username\AppData\Local\ms-playwr
 # 先确保对应的 API key 已在环境变量中配置；查看变量名称:
 python JD-AutomaticEvaluate.py -T
 ```
-对于本项目，跨系统通用的持久配置环境变量(以xAI为例)
+对于本项目，跨系统通用的持久配置环境变量(以SparkAI为例)
 ```
 # 在项目根目录下
-echo XAI_API_KEY=your_API_key >> .env
+echo "SPARKAI_WS_APP_ID=your_app_id" >> .env
+echo "SPARKAI_WS_API_SECRET=your_api_secret" >> .env
+echo "SPARKAI_WS_API_KEY=your_api_key" >> .env
+
 ```
 当然也可以使用常见的环境变量配置方法，在这里就不做赘述了QwQ
 ```
